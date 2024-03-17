@@ -9,7 +9,7 @@ public interface CalculatorView {
 
     ComplexNumber getComplexNumberInput(String prompt);
 
-    Operations getOperationChoice();
+    Integer getOperationChoice();
 
     void updateUI();
 }

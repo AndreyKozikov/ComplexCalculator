@@ -22,39 +22,27 @@ public class ConsoleCalculatorView implements CalculatorView {
     }
 
     @Override
-    public Operations getOperationChoice() {
+    public Integer getOperationChoice() {
         Scanner scanner = new Scanner(System.in);
         updateUI();
         while (true) {
             try {
                 int choice = scanner.nextInt();
                 switch (choice) {
-                    case 1:
-                        return Operations.ADDITIONAL;
-                    case 2:
-                        return Operations.SUBTRACTION;
-                    case 3:
-                        return Operations.MULTIPLICATION;
-                    case 4:
-                        return Operations.DIVISION;
                     case 5:
                         List<String> history;
                         history = CalculatorHistory.getHistory();
                         System.out.println(history);
                         updateUI();
                         break;
-                    case 6:
-                        System.out.println("Программа завершена.");
-                        return Operations.EXIT;
                     default:
-                        System.out.println("Неверный выбор. Пожалуйста, попробуйте еще раз.");
-                        updateUI();
+                        return choice;
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Неверный выбор. Пожалуйста, попробуйте еще раз.");
                 scanner.nextLine();
                 updateUI();
-            }
+            } 
         }
     }
 
